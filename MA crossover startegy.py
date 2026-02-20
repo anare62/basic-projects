@@ -55,6 +55,9 @@ class MovingAverageCrossover:
                 price_when_buy = row['Close']
                 self.is_long = True
                 # print('buy')
+        if self.is_long:
+            final_price = self.data['Close'].iloc[-1]
+            self.equity.append(self.equity[-1] * final_price / price_when_buy)
     
     def plot_equity(self):
         print('Profit (return) of the trading strategy %.2f%%' % (
@@ -70,12 +73,12 @@ class MovingAverageCrossover:
         
 if __name__ == '__main__':
 
-    start_date = datetime.datetime(2010,1,1)
-    end_date = datetime.datetime(2020,1,1)
+    start_date = datetime.datetime(2026,1,1)
+    end_date = datetime.datetime(2026,2,15)
 
     strategy = MovingAverageCrossover(
-        capital=100, 
-        stock='IBM', 
+        capital=1000, 
+        stock='MSFT', 
         start=start_date, 
         end=end_date, 
         short_period=30, 
@@ -83,7 +86,7 @@ if __name__ == '__main__':
     
     strategy.download_data()
     strategy.construct_signals()
-    # strategy.plot_signals()
+    strategy.plot_signals()
     strategy.simulate()
     strategy.plot_equity()
     
