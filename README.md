@@ -1,1 +1,1 @@
-# basic-projects
+### My personal repo for basic algorithmic trading strategies and showcasing new ideas. 
