@@ -1,1 +1,1 @@
-### My personal repo for basic algorithmic trading strategies and showcasing new ideas. 
+### My personal repo for demonstration of concepts, showcasing new ideas and basic algorithmic trading strategies.
